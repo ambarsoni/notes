@@ -2,21 +2,113 @@
 \title{PHYS 2214 -- Prelim 2}
 \author{community}
 
-\section{Dispersion}
-Recall that in our discussion of ideal waves, we assumed a constant wave velocity for a given medium that was invariant of the wave's shape or speed. This simplifying assumption does not hold in real life. Instead, wave velocity is a function of a wave's frequency, $\omega$, and wave vector, $k$.
-\[\cbox{
-  v = \frac{\omega}{k}
-}\]
+\usepackage{code}
+\usepackage{pgf}
+\usepackage{tikz}
 
-More precisely, we define the \emph{phase velocity}, $v_p$, and \emph{group velocity}, $v_g$.
+\numberwithin{equation}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+
+\tableofcontents
+\newpage{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dispersion}
+Recall that in our discussion of ideal waves, we assumed a constant wave
+velocity for a given medium that was invariant of the wave's shape or speed.
+This simplifying assumption does not hold in real life. Instead, wave velocity
+is a function of a wave's frequency, $\omega$, and wave vector, $k$.
+\begin{equation}
+\cbox{%
+  v = \frac{\omega}{k}
+}
+\end{equation}
+
+More precisely, we define the \emph{phase velocity}, $v_p$, and \emph{group
+velocity}, $v_g$.
 \begin{gather}
   \cbox{v_p = \frac{\omega}{k}} \\
   \cbox{v_g = \left. \frac{d\omega}{dk} \right|_{\omega, k}}
 \end{gather}
 
-If we consider a graph of $\omega$ and $k$ parametrized on $v$, as shown in \figref{TODO} and \figref{TODO}, we can form a graphical description of the phase and group velocity. The phase velocity of a pair $(\omega, k)$ is the slope of the line segment connecting the origin to the point $(\omega, k)$. The group velocity of a pair $(\omega, k)$ is the slope of the line tangent to the curve at $(\omega, k)$.
+If we consider a graph of $\omega$ and $k$ parametrized on $v$, we can form a
+graphical description of the phase and group velocity. The phase velocity of a
+pair $(\omega, k)$ is the slope of the line segment connecting the origin to
+the point $(\omega, k)$. The group velocity of a pair $(\omega, k)$ is the
+slope of the line tangent to the curve at $(\omega, k)$.
 
-\begin{document}
-\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Beats}
+Before we begin our analysis of beats, recall a trigonometric identity.
+\begin{equation}\label{eq:beats-trig}
+\cbox[blue]{%
+  \cos(a) + \cos(b) = 2 \left[ 
+    \cos\group{\frac{a+b}{2}} \cos\group{\frac{a-b}{2}} 
+  \right]
+}
+\end{equation}
+
+Now, consider two waves propagating in the same medium in the same direction.
+\begin{align*}
+  y_1 &= A \cos(k_1 x - \omega_1 t) \\
+  y_2 &= A \cos(k_2 x - \omega_2 t)
+\end{align*}
+
+The superposition of the two waves is itself a wave.
+\begin{align}
+  y &= y_1 + y_2 \\
+    &= \cbox{%
+       2A \left[
+        \cos\group{%
+          \frac{\Delta k}{2}x - \frac{\Delta \omega}{2}t
+        } 
+        \cos\group{%
+          \bar{k}x - \bar{\omega}t
+        } 
+      \right]
+      }
+\end{align}
+\begin{equation}
+  \Delta k = k_2 - k_1                         \quad 
+  \Delta \omega = \omega_2 - \omega_1          \quad
+  \bar{k} = \frac{k_1 + k_2}{2}                \quad
+  \bar{\omega} = \frac{\omega_1 + \omega_2}{2} 
+\end{equation}
+
+If $\Delta k \ll k_1, k_2$, then the first sinusoid oscillates much slower than
+the second and we get \emph{beats}, as shown in \figref{beats}. Notice that the
+enveloping sinusoid has frequency $\frac{\Delta \omega}{2}$. However, the beat
+frequency is half of the envelope's frequency. This is true because the beat is
+maximally oscillating at both the peaks and valleys of the envelope.
+\begin{equation}
+  \omega_{\text{beat}} = \Delta \omega
+\end{equation}
+
+The beats are produced by the constructive and destructive interference, as
+shown in \figref{beats-interference}.
+
+\begin{figure}[ht]
+  \centering
+  \resizebox{\textwidth}{!}{\input{beats.pgf}}
+  \caption{Example beats produced by \listref{beats}.}
+  \label{fig:beats}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \resizebox{\textwidth}{!}{\input{beats-interference.pgf}}
+  \caption{Example beat interference produced by \listref{beats}.}
+  \label{fig:beats-interference}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Listings}
+\inputpython[%
+  label=list:beats,
+  caption=Beats
+]{beats.py}
+
 \end{document}
-
