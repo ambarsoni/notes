@@ -144,7 +144,7 @@ TODO: There's some controversy on sign convention and a possible typo in the
 lecture notes.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Energy Transport in Mechanical Waves}
+\section{Energy in Mechanical Waves}
 \subsection{Kinetic Energy}
 Denote kinetic energy $U_k$ and kinetic energy density $u_k$.
 \begin{gather}
@@ -160,9 +160,32 @@ Denote potential energy $U_p$ and potential energy density $u_p$.
 \begin{gather}
   U_p = \frac{1}{2} \tau \Delta x \group{\frac{\partial y}{\partial x}}^2 \\
   \cbox{%
-  u_k = \frac{1}{2} \tau \group{\frac{\partial y}{\partial x}}^2
+  u_p = \frac{1}{2} \tau \group{\frac{\partial y}{\partial x}}^2
   }
 \end{gather}
+
+\subsection{Total Energy}
+For an arbitrary wave, 
+\begin{equation}\label{eq:total-energy}
+\cbox{%
+  u = u_k + u_p =
+      \frac{1}{2} \tau \group{\frac{\partial y}{\partial x}}^2
+    + \frac{1}{2} \mu \group{\frac{\partial y}{\partial t}}^2
+}
+\end{equation}
+
+For transverse travelling waves, we can use the pulse equation to simplify
+Equation~\ref{eq:total-energy}.
+\begin{equation}
+\cbox{%
+  u = \tau \group{\frac{\partial y}{\partial x}}^2
+    = \mu \group{\frac{\partial y}{\partial t}}^2
+}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Power in Mechanical Waves}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Listings}
