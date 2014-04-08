@@ -185,7 +185,70 @@ Equation~\ref{eq:total-energy}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Power in Mechanical Waves}
+\subsection{Impulse Waves}
+In transverse mechanical waves, all particle motion is in the $y$ direction. We
+can use this fact and the relationship $P = Fv$ to find a formula for the power
+of a transverse mechanical wave.
+\begin{align}
+  P &= Fv \\
+    &= \group{-\tau \frac{\partial y}{\partial x}} 
+       \group{\frac{\partial y}{\partial t}} \\
+    &= \cbox{%
+      -\tau \frac{\partial y}{\partial x} \frac{\partial y}{\partial t}
+    }
+\end{align}
 
+For a mechanical transverse pulse, we can apply the pulse equation to derive an
+alternate formula for power.
+\begin{equation}\label{eq:power-alternate}
+\cbox{%
+  P = vu
+}
+\end{equation}
+Here $u$ is the total energy density as in Equation~\eqref{eq:total-energy}.
+
+\subsection{Standing Waves}
+To analyze the power of a mechanical standing wave, we can apply the general
+power equation, 
+  $P = -\tau \frac{\partial y}{\partial x} \frac{\partial y}{\partial t}$.
+
+\paragraph{Nodes} First, analyze the power at a node. At a node, the medium
+does not vertically oscillate. Thus,
+\begin{equation}
+  \forall t.\, \frac{\partial y}{\partial t} = 0
+\end{equation}
+However, the slope of the transverse wave reaches its maximum at a node. Thus 
+\begin{equation}
+  \exists t.\, 
+  \frac{\partial y}{\partial x} = \max \group{\frac{\partial y}{\partial x}}
+\end{equation}
+From this, we can deduce that kinetic energy density is always zero and potential
+energy density reaches its maximum at a node. Moreover, we can deduce that
+power is always zero.
+\begin{align}
+  \forall t.\, P &= -\tau \frac{\partial y}{\partial x} 
+                          \frac{\partial y}{\partial t}                   \\
+                 &= -\tau \group{\frac{\partial y}{\partial x}} \group{0} \\
+                 &= 0
+\end{align}
+
+\paragraph{Antinodes}
+At an antinode, the slope of a standing wave is zero for all time, and the
+vertical velocity of the wave realizes its maximum at the antinode. Using the
+same logic as before, we can deduce three equations similar to that for a node.
+\begin{gather}
+  \forall t.\, 
+    \frac{\partial y}{\partial x} = 0 \\
+  \exists t.\, 
+    \frac{\partial y}{\partial t} = \max \group{\frac{\partial y}{\partial t}} \\
+  \forall t.\, 
+    P = 0
+\end{gather}
+
+Thus, the power is always zero at nodes and antinodes. We can now claim that
+there must not exist any net power transfer along a standing wave. For if there
+were power transferred along a standing wave, then the power at nodes and
+antinodes would have to be nonzero at some instant. This is a contradiction.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Listings}
