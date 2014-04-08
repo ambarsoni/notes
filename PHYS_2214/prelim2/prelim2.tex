@@ -105,6 +105,45 @@ shown in \figref{beats-interference}.
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Doppler Effect}
+\subsection{Mechanical Waves}
+Consider a source $s$ and observer $o$. $s$ travels with velocity $v_s$. $o$
+travels with velocity $v_o$. $s$ emits a wave with frequency $f_s$ and velocity
+$v$. From this, we can determine the wave frequency perceived by $o$, denoted
+$f_o$.
+\begin{equation}\label{eq:doppler}
+\cbox{%
+  f_0 = \frac{v + v_o}{v + v_s} f_s
+}
+\end{equation}
+
+In equation~\eqref{eq:doppler}, $v_o$ and $v_s$ are positive when in the
+direction of observer to source. However, there is an intuitive alternative to
+memorizing this sign convention. Remember that $v_o$ appears in the numerator,
+and remember that $v_s$ appears in the denominator. When thinking about the
+velocity of a source or observer, ask yourself what effect their motion would
+have on the observed frequency. Should the motion increase or decrease the
+observed frequency? Based on this intuition, the sign of the velocity follows
+naturally.
+
+For example, consider a source moving away from the observer. If a source is
+moving away, then the wave he emits will appear to have a lower frequency than
+$f_s$. Thus, the observed frequency will decrease. Because $v_s$ appears in the
+denominator of Equation~\eqref{eq:doppler}, $v_s$ must be positive to decrease
+the value of $f_o$.
+
+A few notes.
+\begin{itemize}
+  \item $v_o$ and $v_s$ are measured with respect to the medium in which the
+    wave propagates.
+  \item $v$ is always positive.
+\end{itemize}
+
+\subsection{Electromagnetic Waves}
+TODO: There's some controversy on sign convention and a possible typo in the
+lecture notes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Listings}
 \inputpython[%
   label=list:beats,
