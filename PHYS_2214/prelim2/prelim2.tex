@@ -253,7 +253,8 @@ antinodes would have to be nonzero at some instant. This is a contradiction.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Energy in Sound Waves}
 The equations for sound wave energy density are analogous to those for
-mechanical waves.
+mechanical waves. Note that these energy densities are energy per volume, not
+energy per length.
 \begin{gather}
   \cbox{u_k = \frac{1}{2} \rho \group{\frac{\partial s}{\partial t}}^2} \\
   \cbox{u_k = \frac{1}{2} B    \group{\frac{\partial s}{\partial x}}^2
@@ -262,7 +263,49 @@ mechanical waves.
 Here, $\rho$ plays the role of $\mu$. Both are mass densities. $B$ plays the
 role of $\tau$. $\tau$ has units of force, and $B$ has units of pressure.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Power in Sound Waves}
+Before we enter the realm of power derivations, lets recall some background
+information. I'll color the equations that may come up later. Recall the
+definitions of $B$.
+\begin{gather}
+  \cbox[blue]{\Delta p = -B \frac{\Delta V}{V_0}} \\
+  \cbox[blue]{\Delta p = -B \frac{\partial s}{\partial x}}
+\end{gather}
 
+Also recall some alternate formulae for $v$.
+\begin{equation}
+  \cbox[blue]{v = \frac{\omega}{k} = \sqrt{\frac{B}{\rho}}}
+\end{equation}
+
+Let's assume we have a harmonic sound wave.
+\begin{gather}
+  \cbox[blue]{s        = s_0 \cos(kx - \omega t)} \\
+  \cbox[blue]{\Delta p = p_0 \sin(kx - \omega t)}
+\end{gather}
+
+Now for some arithmetic. First, we'll expand the equation $\Delta p = -B
+\frac{\partial s}{\partial x}$.
+\begin{align}
+  \Delta p &= -B \frac{\partial s}{\partial x}                               \\
+           &= -B \frac{\partial \group{s_0 \cos(kx - \omega t)}}{\partial x} \\
+           &= -B (-s_0 k \sin(kx - \omega t))                                \\
+           &= B s_0 k \sin(kx - \omega t)                                    \\
+           &= p_0     \sin(kx - \omega t)                                    
+\end{align}
+
+From this, we deduce $p_0 = B s_0 k$. With this fact, we can deduce that $u_k =
+u_p$. The equation for total energy density follows naturally. We can also find
+the average energy density over a period.
+\begin{gather}
+  \cbox{u             = \frac{p_0^2}{B} \sin^2(kx - \omega t)} \\
+  \cbox{u_{\text{av}} = \frac{p_0^2}{2B}}                     
+\end{gather}
+
+If we look at $I = \frac{P}{A}$, we can find the average intensity.
+\begin{equation}
+  \cbox{I_{\text{av}} = vu_{\text{av}}}
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Listings}
