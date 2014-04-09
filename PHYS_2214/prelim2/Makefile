@@ -1,6 +1,7 @@
 TEXFILE = prelim2
+PLOTS   = beats.pgf
 
-$(TEXFILE).pdf: plots $(TEXFILE).tex
+$(TEXFILE).pdf: $(PLOTS) $(TEXFILE).tex
 	knuth build --ipython $(TEXFILE).tex
 
 .PHONY: clean
@@ -19,7 +20,7 @@ sanitize:
 	-rm -f *.pgf
 
 .PHONY: plots
-plots: beats.pgf
+plots: $(PLOTS)
 
 beats.pgf: beats.py
 	python $<
