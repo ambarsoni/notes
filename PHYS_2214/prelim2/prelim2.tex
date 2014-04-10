@@ -5,6 +5,7 @@
 \usepackage{code}
 \usepackage{pgf}
 \usepackage{tikz}
+\usepackage{esint}
 
 \numberwithin{equation}{section}
 
@@ -305,6 +306,123 @@ the average energy density over a period.
 If we look at $I = \frac{P}{A}$, we can find the average intensity.
 \begin{equation}
   \cbox{I_{\text{av}} = vu_{\text{av}}}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Intensity and Distance}
+\begin{equation}
+\cbox{%
+  I = \frac{P}{4 \pi r^2} \propto \frac{1}{r^2}
+}
+\end{equation}
+Since $I \propto s_0^2 \propto p_0^2$, both $s_0$ and $p_0$ vary as
+$\frac{1}{r^2}$.
+
+We hear sound on a log scale.
+\begin{equation}
+\cbox{%
+  \beta = 10 \log\group{\frac{I}{I_0}}
+}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fourier}
+TODO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Maxwell's Equations}
+Integral Form.
+\begin{gather}
+  \cbox{\oiint \vec{E} \cdot d\vec{S} = \frac{Q_\text{enc}}{\epsilon_0}}             
+    \tag{Gauss' Electric Law} \\
+  \cbox{\oiint \vec{B} \cdot d\vec{S} = 0}                                           
+    \tag{Gauss' Magnetic Law} \\
+  \cbox{\oint  \vec{B} \cdot d\vec{l} = \mu_0i + \mu_0\epsilon_0\frac{d \Phi_E}{dt}} 
+    \tag{Ampere's Law}        \\
+  \cbox{\oint  \vec{E} \cdot d\vec{l} = - \frac{d\Phi_B}{dt}}
+    \tag{Faraday's Law}
+\end{gather}
+
+Differential Form.
+\begin{gather}
+  \cbox{\nabla \cdot  \vec{E} = \frac{\rho}{\epsilon_0}
+    \tag{Gauss' Electric Law}} \\
+  \cbox{\nabla \cdot  \vec{B} = 0
+    \tag{Gauss' Magnetic Law}} \\
+  \cbox{\nabla \times \vec{B} = \mu_0 \vec{j} + \mu_0 \epsilon_0 \frac{\partial \vec{E}}{\partial t} 
+    \tag{Ampere's Law}}        \\
+  \cbox{\nabla \times \vec{E} = - \frac{\partial \vec{B}}{\partial t}
+    \tag{Faraday's Law}}
+\end{gather}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Electromagnetic Wave Equation}
+\subsection{Vacuum}
+First, in a vacuum. Notice that the Laplacian operator here is the vector
+Laplacian operator. 
+\begin{gather}
+  \cbox{\nabla^2 \vec{E} = \mu_0 \epsilon_0 \frac{\partial^2 \vec{E}}{\partial t^2}} \\
+  \cbox{\nabla^2 \vec{B} = \mu_0 \epsilon_0 \frac{\partial^2 \vec{B}}{\partial t^2}} \\
+  \cbox{v = \frac{1}{\sqrt{\mu_0 \epsilon_0}}}
+\end{gather}
+
+\subsection{Dielectrics}
+First, define some constants $K$ and $K_m$.
+\begin{equation}
+  \epsilon = K \epsilon_0 \quad \mu = K_m \mu_0
+\end{equation}
+
+\begin{equation}
+  \cbox{\frac{v}{c} = \frac{1}{\sqrt{KK_m}} = \frac{1}{n}}
+\end{equation}
+
+\subsection{Plane Waves}
+\begin{equation}
+  \cbox{B_0 = \frac{E_0}{c}}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Polarization}
+\subsection{Linear Polarization}
+\begin{equation}
+  \vec{E} = E_{x0} \cos(\omega t)\hat{i} + E_{y0} \cos{\omega t}\hat{j}
+\end{equation}
+
+\subsection{Elliptical and Circular Polarization}
+\begin{equation}
+  \vec{E} = E_{x0} \cos(\omega t)\hat{i} + E_{y0} \sin{\omega t}\hat{j}
+\end{equation}
+
+If $E_{x0} = E_{y0}$, then the polarization is circular. Otherwise, it is
+elliptical.
+
+\subsection{Polarizers}
+\begin{equation}
+  \cbox{I_{\text{out}} = I_{\text{in}} \cos^2(\theta) \tag{Malus' Law}}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Reflection and Transmission}
+\subsection{Characteristic Impedance}
+\begin{equation}
+  \cbox{Z = \frac{\mu}{\epsilon}}
+\end{equation}
+
+\subsection{Normal Incidence}
+\begin{gather}
+  R = \frac{Z_2 - Z_1}{Z_2 + Z_1} \\
+  T = 1 + R
+\end{gather}
+
+\subsection{Oblique Incidence, $E$ Parallel}
+See formula sheet?
+
+\subsection{Oblique Incidence, $B$ Parallel}
+See formula sheet?
+
+\subsection{Brewster's Angle}
+\begin{equation}
+  \cbox{\tan(\theta_B) = \frac{n_2}{n_1}}
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
