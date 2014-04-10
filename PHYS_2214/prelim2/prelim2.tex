@@ -1,0 +1,435 @@
+\documentclass{hw}
+\title{PHYS 2214 -- Prelim 2}
+\author{community}
+
+\usepackage{code}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{esint}
+
+\numberwithin{equation}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+
+\tableofcontents
+\newpage{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Dispersion}
+Recall that in our discussion of ideal waves, we assumed a constant wave
+velocity for a given medium that was invariant of the wave's shape or speed.
+This simplifying assumption does not hold in real life. Instead, wave velocity
+is a function of a wave's frequency, $\omega$, and wave vector, $k$.
+\begin{equation}
+\cbox{%
+  v = \frac{\omega}{k}
+}
+\end{equation}
+
+More precisely, we define the \emph{phase velocity}, $v_p$, and \emph{group
+velocity}, $v_g$.
+\begin{gather}
+  \cbox{v_p = \frac{\omega}{k}} \\
+  \cbox{v_g = \left. \frac{d\omega}{dk} \right|_{\omega, k}}
+\end{gather}
+
+If we consider a graph of $\omega$ and $k$ parametrized on $v$, we can form a
+graphical description of the phase and group velocity. The phase velocity of a
+pair $(\omega, k)$ is the slope of the line segment connecting the origin to
+the point $(\omega, k)$. The group velocity of a pair $(\omega, k)$ is the
+slope of the line tangent to the curve at $(\omega, k)$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Beats}
+Before we begin our analysis of beats, recall a trigonometric identity.
+\begin{equation}\label{eq:beats-trig}
+\cbox[blue]{%
+  \cos(a) + \cos(b) = 2 \left[ 
+    \cos\group{\frac{a+b}{2}} \cos\group{\frac{a-b}{2}} 
+  \right]
+}
+\end{equation}
+
+Now, consider two waves propagating in the same medium in the same direction.
+\begin{align*}
+  y_1 &= A \cos(k_1 x - \omega_1 t) \\
+  y_2 &= A \cos(k_2 x - \omega_2 t)
+\end{align*}
+
+The superposition of the two waves is itself a wave.
+\begin{align}
+  y &= y_1 + y_2 \\
+    &= \cbox{%
+       2A \left[
+        \cos\group{%
+          \frac{\Delta k}{2}x - \frac{\Delta \omega}{2}t
+        } 
+        \cos\group{%
+          \bar{k}x - \bar{\omega}t
+        } 
+      \right]
+      }
+\end{align}
+\begin{equation}
+  \Delta k = k_2 - k_1                         \quad 
+  \Delta \omega = \omega_2 - \omega_1          \quad
+  \bar{k} = \frac{k_1 + k_2}{2}                \quad
+  \bar{\omega} = \frac{\omega_1 + \omega_2}{2} 
+\end{equation}
+
+If $\Delta k \ll k_1, k_2$, then the first sinusoid oscillates much slower than
+the second and we get \emph{beats}, as shown in \figref{beats}. Notice that the
+enveloping sinusoid has frequency $\frac{\Delta \omega}{2}$. However, the beat
+frequency is half of the envelope's frequency. This is true because the beat is
+maximally oscillating at both the peaks and valleys of the envelope.
+\begin{equation}
+  \omega_{\text{beat}} = \Delta \omega
+\end{equation}
+
+The beats are produced by the constructive and destructive interference, as
+shown in \figref{beats-interference}.
+
+\begin{figure}[ht]
+  \centering
+  \resizebox{\textwidth}{!}{\input{beats.pgf}}
+  \caption{Example beats produced by \listref{beats}.}
+  \label{fig:beats}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \resizebox{\textwidth}{!}{\input{beats-interference.pgf}}
+  \caption{Example beat interference produced by \listref{beats}.}
+  \label{fig:beats-interference}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Doppler Effect}
+\subsection{Mechanical Waves}
+Consider a source $s$ and observer $o$. $s$ travels with velocity $v_s$. $o$
+travels with velocity $v_o$. $s$ emits a wave with frequency $f_s$ and velocity
+$v$. From this, we can determine the wave frequency perceived by $o$, denoted
+$f_o$.
+\begin{equation}\label{eq:doppler}
+\cbox{%
+  f_0 = \frac{v + v_o}{v + v_s} f_s
+}
+\end{equation}
+
+In equation~\eqref{eq:doppler}, $v_o$ and $v_s$ are positive when in the
+direction of observer to source. However, there is an intuitive alternative to
+memorizing this sign convention. Remember that $v_o$ appears in the numerator,
+and remember that $v_s$ appears in the denominator. When thinking about the
+velocity of a source or observer, ask yourself what effect their motion would
+have on the observed frequency. Should the motion increase or decrease the
+observed frequency? Based on this intuition, the sign of the velocity follows
+naturally.
+
+For example, consider a source moving away from the observer. If a source is
+moving away, then the wave he emits will appear to have a lower frequency than
+$f_s$. Thus, the observed frequency will decrease. Because $v_s$ appears in the
+denominator of Equation~\eqref{eq:doppler}, $v_s$ must be positive to decrease
+the value of $f_o$.
+
+A few notes.
+\begin{itemize}
+  \item $v_o$ and $v_s$ are measured with respect to the medium in which the
+    wave propagates.
+  \item $v$ is always positive.
+\end{itemize}
+
+\subsection{Electromagnetic Waves}
+TODO: There's some controversy on sign convention and a possible typo in the
+lecture notes.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Energy in Mechanical Waves}
+\subsection{Kinetic Energy}
+Denote kinetic energy $U_k$ and kinetic energy density $u_k$.
+\begin{gather}
+  U_k = \frac{1}{2} m v^2 
+      = \frac{1}{2} \mu \Delta x \group{\frac{\partial y}{\partial t}}^2 \\
+  \cbox{%
+  u_k = \frac{1}{2} \mu \group{\frac{\partial y}{\partial t}}^2
+  }
+\end{gather}
+
+\subsection{Potential Energy}
+Denote potential energy $U_p$ and potential energy density $u_p$.
+\begin{gather}
+  U_p = \frac{1}{2} \tau \Delta x \group{\frac{\partial y}{\partial x}}^2 \\
+  \cbox{%
+  u_p = \frac{1}{2} \tau \group{\frac{\partial y}{\partial x}}^2
+  }
+\end{gather}
+
+\subsection{Total Energy}
+For an arbitrary wave, 
+\begin{equation}\label{eq:total-energy}
+\cbox{%
+  u = u_k + u_p =
+      \frac{1}{2} \tau \group{\frac{\partial y}{\partial x}}^2
+    + \frac{1}{2} \mu \group{\frac{\partial y}{\partial t}}^2
+}
+\end{equation}
+
+For transverse travelling waves, we can use the pulse equation to simplify
+Equation~\ref{eq:total-energy}.
+\begin{equation}
+\cbox{%
+  u = \tau \group{\frac{\partial y}{\partial x}}^2
+    = \mu \group{\frac{\partial y}{\partial t}}^2
+}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Power in Mechanical Waves}
+\subsection{Impulse Waves}
+In transverse mechanical waves, all particle motion is in the $y$ direction. We
+can use this fact and the relationship $P = Fv$ to find a formula for the power
+of a transverse mechanical wave.
+\begin{align}
+  P &= Fv \\
+    &= \group{-\tau \frac{\partial y}{\partial x}} 
+       \group{\frac{\partial y}{\partial t}} \\
+    &= \cbox{%
+      -\tau \frac{\partial y}{\partial x} \frac{\partial y}{\partial t}
+    }
+\end{align}
+
+For a mechanical transverse pulse, we can apply the pulse equation to derive an
+alternate formula for power.
+\begin{equation}\label{eq:power-alternate}
+\cbox{%
+  P = vu
+}
+\end{equation}
+Here $u$ is the total energy density as in Equation~\eqref{eq:total-energy}.
+
+\subsection{Standing Waves}
+To analyze the power of a mechanical standing wave, we can apply the general
+power equation, 
+  $P = -\tau \frac{\partial y}{\partial x} \frac{\partial y}{\partial t}$.
+
+\paragraph{Nodes} First, analyze the power at a node. At a node, the medium
+does not vertically oscillate. Thus,
+\begin{equation}
+  \forall t.\, \frac{\partial y}{\partial t} = 0
+\end{equation}
+However, the slope of the transverse wave reaches its maximum at a node. Thus 
+\begin{equation}
+  \exists t.\, 
+  \frac{\partial y}{\partial x} = \max \group{\frac{\partial y}{\partial x}}
+\end{equation}
+From this, we can deduce that kinetic energy density is always zero and potential
+energy density reaches its maximum at a node. Moreover, we can deduce that
+power is always zero.
+\begin{align}
+  \forall t.\, P &= -\tau \frac{\partial y}{\partial x} 
+                          \frac{\partial y}{\partial t}                   \\
+                 &= -\tau \group{\frac{\partial y}{\partial x}} \group{0} \\
+                 &= 0
+\end{align}
+
+\paragraph{Antinodes}
+At an antinode, the slope of a standing wave is zero for all time, and the
+vertical velocity of the wave realizes its maximum at the antinode. Using the
+same logic as before, we can deduce three equations similar to that for a node.
+\begin{gather}
+  \forall t.\, 
+    \frac{\partial y}{\partial x} = 0 \\
+  \exists t.\, 
+    \frac{\partial y}{\partial t} = \max \group{\frac{\partial y}{\partial t}} \\
+  \forall t.\, 
+    P = 0
+\end{gather}
+
+Thus, the power is always zero at nodes and antinodes. We can now claim that
+there must not exist any net power transfer along a standing wave. For if there
+were power transferred along a standing wave, then the power at nodes and
+antinodes would have to be nonzero at some instant. This is a contradiction.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Energy in Sound Waves}
+The equations for sound wave energy density are analogous to those for
+mechanical waves. Note that these energy densities are energy per volume, not
+energy per length.
+\begin{gather}
+  \cbox{u_k = \frac{1}{2} \rho \group{\frac{\partial s}{\partial t}}^2} \\
+  \cbox{u_k = \frac{1}{2} B    \group{\frac{\partial s}{\partial x}}^2
+            = \frac{1}{2B} \Delta p^2}
+\end{gather}
+Here, $\rho$ plays the role of $\mu$. Both are mass densities. $B$ plays the
+role of $\tau$. $\tau$ has units of force, and $B$ has units of pressure.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Power in Sound Waves}
+Before we enter the realm of power derivations, lets recall some background
+information. I'll color the equations that may come up later. Recall the
+definitions of $B$.
+\begin{gather}
+  \cbox[blue]{\Delta p = -B \frac{\Delta V}{V_0}} \\
+  \cbox[blue]{\Delta p = -B \frac{\partial s}{\partial x}}
+\end{gather}
+
+Also recall some alternate formulae for $v$.
+\begin{equation}
+  \cbox[blue]{v = \frac{\omega}{k} = \sqrt{\frac{B}{\rho}}}
+\end{equation}
+
+Let's assume we have a harmonic sound wave.
+\begin{gather}
+  \cbox[blue]{s        = s_0 \cos(kx - \omega t)} \\
+  \cbox[blue]{\Delta p = p_0 \sin(kx - \omega t)}
+\end{gather}
+
+Now for some arithmetic. First, we'll expand the equation $\Delta p = -B
+\frac{\partial s}{\partial x}$.
+\begin{align}
+  \Delta p &= -B \frac{\partial s}{\partial x}                               \\
+           &= -B \frac{\partial \group{s_0 \cos(kx - \omega t)}}{\partial x} \\
+           &= -B (-s_0 k \sin(kx - \omega t))                                \\
+           &= B s_0 k \sin(kx - \omega t)                                    \\
+           &= p_0     \sin(kx - \omega t)                                    
+\end{align}
+
+From this, we deduce $p_0 = B s_0 k$. With this fact, we can deduce that $u_k =
+u_p$. The equation for total energy density follows naturally. We can also find
+the average energy density over a period.
+\begin{gather}
+  \cbox{u             = \frac{p_0^2}{B} \sin^2(kx - \omega t)} \\
+  \cbox{u_{\text{av}} = \frac{p_0^2}{2B}}                     
+\end{gather}
+
+If we look at $I = \frac{P}{A}$, we can find the average intensity.
+\begin{equation}
+  \cbox{I_{\text{av}} = vu_{\text{av}}}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Intensity and Distance}
+\begin{equation}
+\cbox{%
+  I = \frac{P}{4 \pi r^2} \propto \frac{1}{r^2}
+}
+\end{equation}
+Since $I \propto s_0^2 \propto p_0^2$, both $s_0$ and $p_0$ vary as
+$\frac{1}{r^2}$.
+
+We hear sound on a log scale.
+\begin{equation}
+\cbox{%
+  \beta = 10 \log\group{\frac{I}{I_0}}
+}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Fourier}
+TODO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Maxwell's Equations}
+Integral Form.
+\begin{gather}
+  \cbox{\oiint \vec{E} \cdot d\vec{S} = \frac{Q_\text{enc}}{\epsilon_0}}             
+    \tag{Gauss' Electric Law} \\
+  \cbox{\oiint \vec{B} \cdot d\vec{S} = 0}                                           
+    \tag{Gauss' Magnetic Law} \\
+  \cbox{\oint  \vec{B} \cdot d\vec{l} = \mu_0i + \mu_0\epsilon_0\frac{d \Phi_E}{dt}} 
+    \tag{Ampere's Law}        \\
+  \cbox{\oint  \vec{E} \cdot d\vec{l} = - \frac{d\Phi_B}{dt}}
+    \tag{Faraday's Law}
+\end{gather}
+
+Differential Form.
+\begin{gather}
+  \cbox{\nabla \cdot  \vec{E} = \frac{\rho}{\epsilon_0}
+    \tag{Gauss' Electric Law}} \\
+  \cbox{\nabla \cdot  \vec{B} = 0
+    \tag{Gauss' Magnetic Law}} \\
+  \cbox{\nabla \times \vec{B} = \mu_0 \vec{j} + \mu_0 \epsilon_0 \frac{\partial \vec{E}}{\partial t} 
+    \tag{Ampere's Law}}        \\
+  \cbox{\nabla \times \vec{E} = - \frac{\partial \vec{B}}{\partial t}
+    \tag{Faraday's Law}}
+\end{gather}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Electromagnetic Wave Equation}
+\subsection{Vacuum}
+First, in a vacuum. Notice that the Laplacian operator here is the vector
+Laplacian operator. 
+\begin{gather}
+  \cbox{\nabla^2 \vec{E} = \mu_0 \epsilon_0 \frac{\partial^2 \vec{E}}{\partial t^2}} \\
+  \cbox{\nabla^2 \vec{B} = \mu_0 \epsilon_0 \frac{\partial^2 \vec{B}}{\partial t^2}} \\
+  \cbox{v = \frac{1}{\sqrt{\mu_0 \epsilon_0}}}
+\end{gather}
+
+\subsection{Dielectrics}
+First, define some constants $K$ and $K_m$.
+\begin{equation}
+  \epsilon = K \epsilon_0 \quad \mu = K_m \mu_0
+\end{equation}
+
+\begin{equation}
+  \cbox{\frac{v}{c} = \frac{1}{\sqrt{KK_m}} = \frac{1}{n}}
+\end{equation}
+
+\subsection{Plane Waves}
+\begin{equation}
+  \cbox{B_0 = \frac{E_0}{c}}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Polarization}
+\subsection{Linear Polarization}
+\begin{equation}
+  \vec{E} = E_{x0} \cos(\omega t)\hat{i} + E_{y0} \cos{\omega t}\hat{j}
+\end{equation}
+
+\subsection{Elliptical and Circular Polarization}
+\begin{equation}
+  \vec{E} = E_{x0} \cos(\omega t)\hat{i} + E_{y0} \sin{\omega t}\hat{j}
+\end{equation}
+
+If $E_{x0} = E_{y0}$, then the polarization is circular. Otherwise, it is
+elliptical.
+
+\subsection{Polarizers}
+\begin{equation}
+  \cbox{I_{\text{out}} = I_{\text{in}} \cos^2(\theta) \tag{Malus' Law}}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Reflection and Transmission}
+\subsection{Characteristic Impedance}
+\begin{equation}
+  \cbox{Z = \frac{\mu}{\epsilon}}
+\end{equation}
+
+\subsection{Normal Incidence}
+\begin{gather}
+  R = \frac{Z_2 - Z_1}{Z_2 + Z_1} \\
+  T = 1 + R
+\end{gather}
+
+\subsection{Oblique Incidence, $E$ Parallel}
+See formula sheet?
+
+\subsection{Oblique Incidence, $B$ Parallel}
+See formula sheet?
+
+\subsection{Brewster's Angle}
+\begin{equation}
+  \cbox{\tan(\theta_B) = \frac{n_2}{n_1}}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Listings}
+\inputpython[%
+  label=list:beats,
+  caption=Beats
+]{beats.py}
+
+\end{document}
