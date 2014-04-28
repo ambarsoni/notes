@@ -62,7 +62,7 @@ applications:
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.5]{jobtask}
+  \includegraphics[scale=.5]{img/jobtask}
 \end{figure}
 
 \section{Scheduling}
@@ -86,11 +86,11 @@ some important derived terminology with regard to scheduling:
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{schedule}
+  \includegraphics[scale=.6]{img/schedule}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{jitter}
+  \includegraphics[scale=.6]{img/jitter}
 \end{figure}
 
 \subsection{Scheduling Algorithms}
@@ -121,7 +121,7 @@ simply have a \emph{faster} processor doesn't always mean it is easier to meed
 deadlines:
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{faster}
+  \includegraphics[scale=.6]{img/faster}
 \end{figure}
 
 \subsection{First Come Fist Serve (FCFS)}
@@ -131,7 +131,7 @@ depends strongly on task arrivals. It is not suitable for real time systems
 because it is not concerned with feasibility. It has the following properties:
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.5]{fcfs1}
+  \includegraphics[scale=.5]{img/fcfs1}
 \end{figure}
 
 \begin{itemize}
@@ -143,7 +143,7 @@ because it is not concerned with feasibility. It has the following properties:
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{fcfs2}
+  \includegraphics[scale=.6]{img/fcfs2}
 \end{figure}
 
 \subsection{Shortest Job First (SJF)}
@@ -159,7 +159,7 @@ following properties:
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{sjf}
+  \includegraphics[scale=.6]{img/sjf}
 \end{figure}
 
 \subsubsection{Proof for SJF}
@@ -224,7 +224,7 @@ the ready queue. It has to following properties:
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{rr}
+  \includegraphics[scale=.6]{img/rr}
 \end{figure}
 
 
@@ -243,7 +243,7 @@ There are three main types of tasks we are concerned about:
 \end{enumerate}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{tasks}
+  \includegraphics[scale=.6]{img/tasks}
 \end{figure}
 
 \subsection{Earliest Due Date (EDD)}
@@ -262,11 +262,11 @@ $1/D_{i}$
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{edd}
+  \includegraphics[scale=.6]{img/edd}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{edd2}
+  \includegraphics[scale=.6]{img/edd2}
 \end{figure}
 EDD can be proved using \emph{Jackson's Rule:} Given a set of n independent tasks
 ,any algorithm that executes the tasks in order of increasing deadlines is optimal
@@ -310,7 +310,7 @@ and a finite number such such transpositions can transpose $\sigma$ into an EDD
 schedule which in turn will have minimum maximum latness. 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.75]{jacksons}
+  \includegraphics[scale=0.75]{img/jacksons}
   \label{fig:jackson}
 \end{figure}
 
@@ -329,7 +329,7 @@ optimal and cannot produce a feasible schedule.
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{edf}
+  \includegraphics[scale=.6]{img/edf}
 \end{figure}
 
 
@@ -337,7 +337,7 @@ optimal and cannot produce a feasible schedule.
 Period tasks are those that have jobs that repeat at a regular interval in time.
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{period}
+  \includegraphics[scale=.6]{img/period}
 \end{figure}
 
 \subsection{Timeline Scheduling}
@@ -352,7 +352,7 @@ desired request rate. Timers are used to activate execution in each slot.
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{timeline}
+  \includegraphics[scale=.6]{img/timeline}
 \end{figure}
 Advantages:
 \begin{itemize}
@@ -386,7 +386,7 @@ here is how can we determine feasibility?
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{rm}
+  \includegraphics[scale=.6]{img/rm}
 \end{figure}
 
 \section{Priority Inheritance}
@@ -402,7 +402,7 @@ processes priorities. The problem with this design is that high priority tasks
 that do not interfere with the CS will be blocked.
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{npp}
+  \includegraphics[scale=.6]{img/npp}
 \end{figure}
 
 \subsection{Highest Locker Priority}
@@ -413,7 +413,7 @@ could be blocked because it \emph{might} enter the critical section, not because
 it is in the critical section.
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{hlp}
+  \includegraphics[scale=.6]{img/hlp}
 \end{figure}
 
 \subsection{Priority Inheritance Protocol}
@@ -427,17 +427,17 @@ tasks that it blocks. There are two types of blocking:
 \end{enumerate}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{pip1}
+  \includegraphics[scale=.6]{img/pip1}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{pip2}
+  \includegraphics[scale=.6]{img/pip2}
 \end{figure}
 Problem: \emph{Chained Blocking:} higher priority processes get constantly 
 blocked while waiting for lower priority processes to finish CS.
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{pip3}
+  \includegraphics[scale=.6]{img/pip3}
 \end{figure}
 
 \subsection{Priority Ceiling Protocol}
@@ -451,7 +451,7 @@ blocked until you relinquish the CS that gave you that authority.
 $T_{i}$.
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.7]{pcp}
+  \includegraphics[scale=.7]{img/pcp}
 \end{figure}
 
 
@@ -476,7 +476,7 @@ This is a very simple and resilient protocol that was used initially to connect
 to a modem.
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.6]{rs1}
+  \includegraphics[scale=.6]{img/rs1}
 \end{figure}
 
 \begin{itemize}
@@ -496,11 +496,11 @@ to a modem.
 \end{itemize}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.25]{rs2}
+  \includegraphics[scale=.25]{img/rs2}
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=.4]{rs3}
+  \includegraphics[scale=.4]{img/rs3}
 \end{figure}
 
 
