@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  27 APR 2014 14:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  27 APR 2014 23:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -935,24 +935,24 @@ File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ) [1{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-<jobtask.png, id=125, 571.13374pt x 318.18875pt>
+<jobtask.png, id=130, 571.13374pt x 318.18875pt>
 File: jobtask.png Graphic file (type png)
  <use jobtask.png>
 Package pdftex.def Info: jobtask.png used on input line 65.
 (pdftex.def)             Requested size: 285.56618pt x 159.09398pt.
  [2]
-<schedule.png, id=134, 544.0325pt x 130.4875pt>
+<schedule.png, id=139, 544.0325pt x 130.4875pt>
 File: schedule.png Graphic file (type png)
  <use schedule.png>
 Package pdftex.def Info: schedule.png used on input line 89.
 (pdftex.def)             Requested size: 326.42201pt x 78.29309pt.
 
-<jitter.png, id=135, 586.19pt x 235.88126pt>
+<jitter.png, id=140, 586.19pt x 235.88126pt>
 File: jitter.png Graphic file (type png)
  <use jitter.png>
 Package pdftex.def Info: jitter.png used on input line 93.
 (pdftex.def)             Requested size: 351.7167pt x 141.52983pt.
- [3 <./jobtask.png> <./schedule.png>] <faster.png, id=146, 561.09625pt x 270.00
+ [3 <./jobtask.png> <./schedule.png>] <faster.png, id=151, 561.09625pt x 270.00
 874pt>
 File: faster.png Graphic file (type png)
 
@@ -960,123 +960,123 @@ File: faster.png Graphic file (type png)
 Package pdftex.def Info: faster.png used on input line 124.
 (pdftex.def)             Requested size: 336.66034pt x 162.00648pt.
  [4 <./jitter.png>]
-<fcfs1.png, id=153, 490.83376pt x 187.70125pt>
+<fcfs1.png, id=158, 490.83376pt x 187.70125pt>
 File: fcfs1.png Graphic file (type png)
  <use fcfs1.png>
 Package pdftex.def Info: fcfs1.png used on input line 134.
 (pdftex.def)             Requested size: 245.41628pt x 93.85039pt.
 
-<fcfs2.png, id=154, 556.0775pt x 71.26625pt>
+<fcfs2.png, id=159, 556.0775pt x 71.26625pt>
 File: fcfs2.png Graphic file (type png)
  <use fcfs2.png>
 Package pdftex.def Info: fcfs2.png used on input line 146.
 (pdftex.def)             Requested size: 333.64908pt x 42.76006pt.
- [5 <./faster.png> <./fcfs1.png> <./fcfs2.png>] <sjf.png, id=164, 572.1375pt x 
+ [5 <./faster.png> <./fcfs1.png> <./fcfs2.png>] <sjf.png, id=169, 572.1375pt x 
 223.83624pt>
 File: sjf.png Graphic file (type png)
 
 <use sjf.png>
 Package pdftex.def Info: sjf.png used on input line 162.
 (pdftex.def)             Requested size: 343.28514pt x 134.30278pt.
- [6 <./sjf.png>] <rr.png, id=171, 558.085pt x 71.26625pt>
+ [6 <./sjf.png>] <rr.png, id=176, 558.085pt x 71.26625pt>
 File: rr.png Graphic file (type png)
 
 <use rr.png>
 Package pdftex.def Info: rr.png used on input line 203.
 (pdftex.def)             Requested size: 334.85359pt x 42.76006pt.
- <tasks.png, id=172, 555.07375pt x 244.915pt>
+ <tasks.png, id=177, 555.07375pt x 244.915pt>
 File: tasks.png Graphic file (type png)
  <use tasks.png>
 Package pdftex.def Info: tasks.png used on input line 222.
 (pdftex.def)             Requested size: 333.0468pt x 146.95012pt.
 
-[7 <./rr.png> <./tasks.png>] <edd.png, id=184, 552.0625pt x 224.84pt>
+[7 <./rr.png> <./tasks.png>] <edd.png, id=189, 552.0625pt x 224.84pt>
 File: edd.png Graphic file (type png)
 
 <use edd.png>
 Package pdftex.def Info: edd.png used on input line 241.
 (pdftex.def)             Requested size: 331.24005pt x 134.90503pt.
- <edd2.png, id=185, 551.05875pt x 237.88875pt>
+ <edd2.png, id=190, 551.05875pt x 237.88875pt>
 File: edd2.png Graphic file (type png)
  <use edd2.png>
 Package pdftex.def Info: edd2.png used on input line 245.
 (pdftex.def)             Requested size: 330.63779pt x 142.73433pt.
 
-<edf.png, id=186, 553.06625pt x 171.64125pt>
+<edf.png, id=191, 553.06625pt x 171.64125pt>
 File: edf.png Graphic file (type png)
  <use edf.png>
 Package pdftex.def Info: edf.png used on input line 265.
 (pdftex.def)             Requested size: 331.8423pt x 102.98552pt.
- [8 <./edd.png> <./edd2.png>] <period.png, id=194, 557.08125pt x 61.22874pt>
+ [8 <./edd.png> <./edd2.png>] <period.png, id=199, 557.08125pt x 61.22874pt>
 File: period.png Graphic file (type png)
  <use period.png>
 Package pdftex.def Info: period.png used on input line 273.
 (pdftex.def)             Requested size: 334.25133pt x 36.73752pt.
 
-<timeline.png, id=195, 617.30624pt x 330.23375pt>
+<timeline.png, id=200, 617.30624pt x 330.23375pt>
 File: timeline.png Graphic file (type png)
  <use timeline.png>
 Package pdftex.def Info: timeline.png used on input line 288.
 (pdftex.def)             Requested size: 370.3866pt x 198.14177pt.
- [9 <./edf.png> <./period.png> <./timeline.png>] <rm.png, id=204, 570.13pt x 15
+ [9 <./edf.png> <./period.png> <./timeline.png>] <rm.png, id=209, 570.13pt x 15
 4.5775pt>
 File: rm.png Graphic file (type png)
 
 <use rm.png>
 Package pdftex.def Info: rm.png used on input line 322.
 (pdftex.def)             Requested size: 342.08064pt x 92.7472pt.
- <npp.png, id=205, 566.115pt x 355.3275pt>
+ <npp.png, id=210, 566.115pt x 355.3275pt>
 File: npp.png Graphic file (type png)
  <use npp.png>
 Package pdftex.def Info: npp.png used on input line 338.
 (pdftex.def)             Requested size: 339.67162pt x 213.19814pt.
- [10 <./rm.png>] <hlp.png, id=214, 568.1225pt x 370.38374pt>
+ [10 <./rm.png>] <hlp.png, id=219, 568.1225pt x 370.38374pt>
 File: hlp.png Graphic file (type png)
  <use hlp.png>
 Package pdftex.def Info: hlp.png used on input line 349.
 (pdftex.def)             Requested size: 340.87611pt x 222.23195pt.
- [11 <./npp.png> <./hlp.png>] <pip1.png, id=222, 548.0475pt x 138.5175pt>
+ [11 <./npp.png> <./hlp.png>] <pip1.png, id=227, 548.0475pt x 138.5175pt>
 File: pip1.png Graphic file (type png)
  <use pip1.png>
 Package pdftex.def Info: pip1.png used on input line 363.
 (pdftex.def)             Requested size: 328.83104pt x 83.11113pt.
 
-<pip2.png, id=223, 550.055pt x 174.6525pt>
+<pip2.png, id=228, 550.055pt x 174.6525pt>
 File: pip2.png Graphic file (type png)
  <use pip2.png>
 Package pdftex.def Info: pip2.png used on input line 367.
 (pdftex.def)             Requested size: 330.03554pt x 104.7923pt.
 
-<pip3.png, id=224, 543.02875pt x 183.68625pt>
+<pip3.png, id=229, 543.02875pt x 183.68625pt>
 File: pip3.png Graphic file (type png)
  <use pip3.png>
 Package pdftex.def Info: pip3.png used on input line 373.
 (pdftex.def)             Requested size: 325.81975pt x 110.21259pt.
 
-<pcp.png, id=225, 405.515pt x 269.005pt>
+<pcp.png, id=230, 405.515pt x 269.005pt>
 File: pcp.png Graphic file (type png)
  <use pcp.png>
 Package pdftex.def Info: pcp.png used on input line 387.
 (pdftex.def)             Requested size: 283.85855pt x 188.3022pt.
- [12 <./pip1.png> <./pip2.png> <./pip3.png>] 
+ [12 <./pip1.png> <./pip2.png> <./pip3.png>] [13 <./pcp.png>] 
 AED: lastpage setting LastPage
-[13 <./pcp.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 397.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 397.
+[14]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 426.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 426.
  (./p2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 397.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 397.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 426.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 426.
 Package rerunfilecheck Info: File `p2.out' has not changed.
-(rerunfilecheck)             Checksum: 311F7384F8AD5DB51EA35945DCC60FF8;1506.
+(rerunfilecheck)             Checksum: B8D810DC9F63F3A419085A220678E643;1562.
  ) 
 Here is how much of TeX's memory you used:
- 18798 strings out of 493315
- 310849 string characters out of 6137904
- 443235 words of memory out of 5000000
- 21820 multiletter control sequences out of 15000+600000
+ 18801 strings out of 493315
+ 310886 string characters out of 6137904
+ 444238 words of memory out of 5000000
+ 21821 multiletter control sequences out of 15000+600000
  10661 words of font info for 40 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,11n,57p,848b,410s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,11n,57p,848b,412s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 }</usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -1088,10 +1088,10 @@ cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
 /texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/
 texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/t
 exlive/2013/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on p2.pdf (13 pages, 478174 bytes).
+Output written on p2.pdf (14 pages, 480861 bytes).
 PDF statistics:
- 293 PDF objects out of 1000 (max. 8388607)
- 244 compressed objects within 3 object streams
- 64 named destinations out of 1000 (max. 500000)
- 282 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 303 PDF objects out of 1000 (max. 8388607)
+ 253 compressed objects within 3 object streams
+ 66 named destinations out of 1000 (max. 500000)
+ 290 words of extra memory for PDF output out of 10000 (max. 10000000)
 

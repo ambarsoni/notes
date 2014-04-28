@@ -389,9 +389,38 @@ $T_{i}$.
 
 
 \section{Communication Protocols}
-Terminology: 
+With regard to what we previously talked about with Daisy Chaining, devices
+can send signals to the CPU. However, we have not yet discussed how the 
+signals are transmitted between the wires. Here is some vocabulary:
 \begin{itemize}
-  \item 
+  \item Synchronous: Having one line for data and a separate line for clock to
+    keep track of when a bit is sent or received. 
+  \item Parity: Way to check for error, it is the XOR of all the bits
+    \subitem Even: xor of bits = 0
+    \subitem Odd: xor of bits = 1
+    \subitem Error checking is very weak bc can only check for 1 bit of error
+  \item Baud Rate: frequency of you are transmitting/receiving at
+  \item Flow Control: method of tell tranismitter to Stop/Start. It is used if 
+    you have error or if using a finite buffering system.
+\end{itemize}
+
+\subsection{RS-232}
+This is a very simple and resilient protocol that was used initially to connect
+to a modem.
+\begin{itemize}
+  \item Large voltage swings to amplify signal to noise ratio (1:-12V 0:+12V)
+  \item Can be half duplex (1 comm direction at a time) or full duplex
+  \item Asynchronous 
+  \item Limited to 7-8 bits at a time per transmission for data and 0-1 parity 
+    bits per transmission.
+    \subitem 8 bits are are communicating bytes. 7 bits are used for communicating
+    ASCII
+  \item Both transmiter and receiver have to agree on how many bits sent, what
+    type of parity, and baud rate before communicating.
+  \item Advantages: Simple, resilient to noise, can transmit over long distances
+  \item Disadvantages: Slow b/c there is no internal clock, drains power
+  \item Software Flow Control: XON/XOFF (17)/(19)
+  \item Hardware Flow Control: RTS/CTS - assigned bits on the serial port
 \end{itemize}
 
 \end{document}
