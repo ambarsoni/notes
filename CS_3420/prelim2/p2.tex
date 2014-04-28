@@ -79,9 +79,7 @@ some important derived terminology with regard to scheduling:
 \begin{itemize}
   \item Lateness: $L_{i} = f_{i} - d_{i} $ Want this to be $\leq 0$
   \item Tardiness: $max(0,L_{i})$
-  \item Residual wcet: $c_{i}(t)$ This is the worst case execution time for the
-    remainder of the job whereas WCET itself is the overall worst case
-    execution time.
+  \item Residual wcet: $c_{i}(t)$
   \item Slack: $d_{i} - t - c_{i}(t)$  How sloppy can I be
   \item Jitter: time variation of a periodic event
 \end{itemize}
@@ -103,7 +101,7 @@ feasible schedule exists. Scheduling algorithms can be:
   \item Preemptive or non-preemptive
   \item Static or Dynamic: are the scheduling decisions based on parameters that
     change with time? For static, the parameters for all processes needed for the
-    schedule are known before hand (apriori) and do not change with execution.
+    schedule are known before hand.
   \item Online or Offline: are the decisions made prior with knowledge of task 
     activations, or are they taken at run time based on the set of active tasks?
     These are different from Static/Dynamic in the sense that they describe when
@@ -114,13 +112,12 @@ feasible schedule exists. Scheduling algorithms can be:
 Optimality simply means are we trying to minimize or maximize some parameter. 
 For example, minimizing the maximum lateness, minimizing the number of missed 
 deadlines, or maximize the value of of feasible tasks given than tasks are 
-assigned some utility value. \\
+assigned some utility value.
 
-Based on these definitions, a dynamic algorithm must necessarily be online. 
 \subsection{Resource Constraints}
 Resources (locks) can often be limited or even unavailable. Shared resources 
 often require mutual exclusion. Both of these concepts lead to delays. Therefore
-simply having a \emph{faster} processor doesn't always mean it is easier to meet
+simply have a \emph{faster} processor doesn't always mean it is easier to meed
 deadlines:
 \begin{figure}[H]
   \centering
@@ -128,7 +125,7 @@ deadlines:
 \end{figure}
 
 \subsection{First Come Fist Serve (FCFS)}
-A simple policy in which processes are given access to the CPU in the order of 
+A simply policy in which processes are given access to the CPU in the order of 
 their arrival time. However, it is very unpredictable as the response time
 depends strongly on task arrivals. It is not suitable for real time systems
 because it is not concerned with feasibility. It has the following properties:
@@ -187,9 +184,10 @@ Now lets assume that the schedule $\sigma$ is such that $\sigma = {j_1, j_2
   in $\sigma '$ than in $\sigma$. Consequently, the average response time in
   $\sigma '$ is less than equal to that of $\sigma$. If we make a finite number
   of such transpositions, we can see that $\sigma_{SJF}$ will minimize average
-  response time. 
+  response time.
 
-  \subsection{Priority Scheduling}
+
+\subsection{Priority Scheduling}
 Each task is assigned a priority $p_{i}$ and the task with the highest priority
 is selected first. Tasks with the same priority are scheduling using FCFS. It has
 the following properties:
@@ -289,9 +287,9 @@ same as EDD then, there are two jobs $J_a$ and $J_b$ such that $d_a \leq d_b$
 where $J_b$ immediately precdes $J_a$ in the schedule $\sigma$. Lets switch
 $J_b$ and $J_a$ to produce a new schedule $\sigma '$. In $\sigma '$, $J_a$
 immediately precedes $J_b$. These two schedules are shown in the figure
-\ref{jackson}. \\
+\figref{jackson}. \\
 
-From figure \ref{jackson} we can see that for $\sigma$ the maximum lateness is
+From figure \figref{jackson} we can see that for $\sigma$ the maximum lateness is
 $f_a - d_a$. Lets compare this with the maximum lateness of $\sigma '$. Here we
 have two cases :
 
@@ -312,8 +310,8 @@ and a finite number such such transpositions can transpose $\sigma$ into an EDD
 schedule which in turn will have minimum maximum latness. 
 \begin{figure}[H]
   \centering
-  \label{jackson}
   \includegraphics[scale=0.75]{jacksons}
+  \label{fig:jackson}
 \end{figure}
 
 
@@ -476,6 +474,11 @@ signals are transmitted between the wires. Here is some vocabulary:
 \subsection{RS-232}
 This is a very simple and resilient protocol that was used initially to connect
 to a modem.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=.6]{rs1}
+\end{figure}
+
 \begin{itemize}
   \item Large voltage swings to amplify signal to noise ratio (1:-12V 0:+12V)
   \item Can be half duplex (1 comm direction at a time) or full duplex
@@ -491,6 +494,15 @@ to a modem.
   \item Software Flow Control: XON/XOFF (17)/(19)
   \item Hardware Flow Control: RTS/CTS - assigned bits on the serial port
 \end{itemize}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=.25]{rs2}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=.4]{rs3}
+\end{figure}
+
 
 \end{document}
 
