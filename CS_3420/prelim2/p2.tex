@@ -356,30 +356,34 @@ $1/D_{i}$
   \centering
   \includegraphics[scale=.6]{img/edd2}
 \end{figure}
-EDD can be proved using \emph{Jackson's Rule:} Given a set of n independent tasks
-,any algorithm that executes the tasks in order of increasing deadlines is optimal
-with respect to maximum lateness.
+EDD can be proved using \emph{Jackson's Rule:} Given a set of n independent
+tasks, any algorithm that executes the tasks in order of increasing deadlines
+is optimal with respect to maximum lateness.
 
 \subsubsection{Proof for EDD}
+\paragraph{Formal Proof}
+TODO
+
+\paragraph{Pragmatic Proof}
 The following proof is not a completely rigorous attempt at proving EDD but
 will suffice for the purposes of this class. First we realize that we are
-essentially trying to prove \textbf{Jackson's Rule}. \\
+essentially trying to prove \textbf{Jackson's Rule}.
 
 \textbf{Theorem (Jackson's Rule)} : \textit{Given a set of n independent tasks,
 any algorithm that executes the tasks in the order of non-decreasing deadlines
-is optimal with respect to maximum lateness} \\
+is optimal with respect to maximum lateness} 
 
 \textbf{Proof} To prove Jackson's theorem we will use an interchange argument.
 Let $\sigma$ be a schedule produced by any algorithm $A$. If $A$ is not the
 same as EDD then, there are two jobs $J_a$ and $J_b$ such that $d_a \leq d_b$
 where $J_b$ immediately precdes $J_a$ in the schedule $\sigma$. Lets switch
 $J_b$ and $J_a$ to produce a new schedule $\sigma '$. In $\sigma '$, $J_a$
-immediately precedes $J_b$. These two schedules are shown in the figure
-\figref{jackson}. \\
+immediately precedes $J_b$. These two schedules are shown in the
+\figref{jackson}. 
 
-From figure \figref{jackson} we can see that for $\sigma$ the maximum lateness is
-$f_a - d_a$. Lets compare this with the maximum lateness of $\sigma '$. Here we
-have two cases :
+From \figref{jackson} we can see that for $\sigma$ the maximum lateness
+is $f_a - d_a$. Lets compare this with the maximum lateness of $\sigma '$. Here
+we have two cases :
 
 \begin{enumerate}
   \item $L'_a \geq L'_b$ Then we know that the maximum lateness between $J_a$
@@ -399,9 +403,9 @@ schedule which in turn will have minimum maximum latness.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.75]{img/jacksons}
+  \caption{Jackson's Rule}
   \label{fig:jackson}
 \end{figure}
-
 
 \subsection{Earliest Deadline First (EDF)}
 The algorithm selects the task with the earliest \emph{absolute} deadline. Tasks
