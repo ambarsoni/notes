@@ -16,7 +16,7 @@ response. Real-time programs must guarantee response within precise time
 constraints, often referred to as \emph{deadlines}.
 \begin{itemize}
   \item Correctness depends on  the usual properties such as correct output as
-    well as on the \emph{time} at which the output is produced.
+    well as on the \emph{time} at which the output is produced. 
   \item Time between different entities must be synchronized (non-trivial)
   \item Real time is not the same as performance or speed!
 \end{itemize}
@@ -163,34 +163,122 @@ following properties:
 \end{figure}
 
 \subsubsection{Proof for SJF}
+\paragraph{Formal Proof}
+In this section, we'll prove that the SJF algorithm produces a schedule that
+minimizes average response time. First recall a few definitions and points to
+note.
+\begin{itemize}
+  \item A schedule is a function from jobs to natural numbers, $\sigma: \Gamma
+    \rightarrow \mathbb{R}$. Abstractly, for all time $t$, $\sigma(t) = \gamma$
+    implies that the task $\gamma$ is scheduled to run at time $t$. Often it is
+    convenient to assume that there is no idle time in the schedule and to let
+    $\sigma$ denote a sequenced collection of the set of tasks, $\Gamma$. For
+    example, $\sigma = \gamma_1, \gamma_2, \ldots, \gamma_n$.
+  \item The response time of a task $\gamma_i$ is $f_i - r_i$. The average
+    response time of a schedule is $\frac{\sum_i f_i - r_i}{|\Gamma|}$. For a
+    given set of tasks, $\Gamma$, $|\Gamma|$ is a constant. Thus, if we aim to
+    minimize average response time, we can equivalently minimize the sum of
+    response times, $\sum f_i - r_i$.
+  \item An inversion in a schedule $\sigma$ is a pair of tasks $(\gamma_j,
+    \gamma_i)$ such that $\gamma_j$ is scheduled before $\gamma_i$ and
+    $\gamma_i$ is shorter than $\gamma_j$.
+\end{itemize}
+
+\begin{lemma}\label{lemma:idle}
+There exists an optimal schedule with no idle time.
+\begin{proof}
+Assume there did not exist an optimal schedule with no idle time. Take some
+optimal schedule $\sigma_O$. We can remove the idle time and improve the
+average response time. However, $\sigma_O$ was optimal. This is a
+contradiction.
+\end{proof}
+\end{lemma}
+
+\begin{lemma}\label{lemma:equal}
+All schedules with no inversions and no idle time are equally optimal.
+\begin{proof}
+Two schedules with no inversions and no idle time can vary only in the ordering
+of tasks with equal length. If we swap two such tasks, the average response
+time does not change. Thus, if we begin with some inversion-free, idle-free
+schedule $\sigma_1$ and perform a sequence of swaps, we will get some other
+schedule $\sigma_2$ that is equally optimal.
+\end{proof}
+\end{lemma}
+
+\begin{lemma}\label{lemma:exchange}
+There exists an optimal schedule with no inversions and no idle time.
+\begin{proof}
+We will prove this claim with an exchange argument. We'll begin with some
+optimal schedule $\sigma_O$ and perform a series of operations to remove
+inversions.  Each operation will not decrease the optimality of the algorithm.
+This will lead to a schedule that has no idle time and no inversions that is
+still optimal. 
+
+Consider some optimal schedule $\sigma_O$ with an inversion $\gamma_j,
+\gamma_i$ and no idle time.  Partition the schedule into three segments.
+\begin{itemize}
+  \item $\sigma_{O1}$: The set of tasks scheduled before $\gamma_j$
+  \item $\sigma_{O2}$: The set of tasks between $\gamma_j$ and $\gamma_i$,
+    inclusive
+  \item $\sigma_{O3}$: The set of tasks scheduled after $\gamma_i$
+\end{itemize}
+
+We will now exchange $\gamma_i$ and $\gamma_j$ and claim that the optimality of
+$\sigma_O$ does not decrease. First note that the sum of response times of
+$\sigma_{O1}$ and $\sigma_{O3}$ are not altered. $\sigma_{O2}$ can be divided
+into $\gamma_i$, $\gamma_j$, and the other tasks scheduled between them. The
+response time of the intermediate tasks strictly decrease. The response time of
+$\gamma_j$ is equal to the old response time of $\gamma_i$. The response time
+of $\gamma_i$ is strictly smaller than the old response time of $\gamma_j$.
+Thus, the sum of response time of $\sigma_{O2}$ does not increase. 
+
+Any schedule contains a finite number of inversions. Each time we perform a
+swap, we decrease the number of inversions. Thus, we are guaranteed to make a
+finite number of swaps.
+
+After we complete the finite number swaps, we have constructed a schedule with
+no inversions and no idle time that is not less optimal than our original
+optimal schedule $\sigma_O$.
+\end{proof}
+\end{lemma}
+
+\begin{claim}
+SJF produces optimal schedules.
+\begin{proof}
+We can trivially combine Lemma~\ref{lemma:idle}, Lemma~\ref{lemma:equal}, and
+Lemma~\ref{lemma:exchange}. There exists an optimal schedule that is SJF\@. All
+SJF schedules are equally optimal. Thus, all SJF schedules are optimal.
+\end{proof}
+\end{claim}
+
+\paragraph{Pragmatic Proof}
 The following proof is not rigorous but will suffice for the purposes of this
-class. \\
+class.
 
 To prove SJF we will use a simple interchange argument. We start with a
-schedule $\sigma$ where $\sigma = {j_1, j_2 \dots j_k \dots j_n}.$ In this
+schedule $\sigma$ where $\sigma = {j_1, j_2 \dots j_k \dots j_n}$. In this
 schedule $\sigma$ we have two jobs $j_i$ and $j_k$ such that $c_i \leq c_k$.
 Now lets assume that the schedule $\sigma$ is such that $\sigma = {j_1, j_2
 \dots j_{i-1}, j_k, j_{i+1} \dots j_{k-1}, j_l, j_{k+1} \dots j_n}$. We must
-  show that if we interchange the positions of $j_i$ and $j_k$ to produce a
-  schedule $\sigma '$ that the new schedule $\sigma '$ has at least as good an
-  average response time as $\sigma$. If we look at both schedule $\sigma$ and
-  $\sigma$ we first realize that the average response time between $j_1 \dots
-  j_{i-1}$ and $j_{k+1} \dots j_n$ in both schedules is equal. For the jobs
-  $j_i \dots j_k$ in $\sigma '$ and $j_k, j_{i+1} \dots j_{k-1}, j_i$ we every
-  job in $\sigma '$ will have a lower resposne time since $c_i \leq c_k$ and
-  every job after the first one in $\sigma '$ (for this subset of jobs) will
-  finish earlier than the corresponding job in $\sigma$. Thus, we can conclude
-  that the average resposne time for this subset of jobs is less than or equal
-  in $\sigma '$ than in $\sigma$. Consequently, the average response time in
-  $\sigma '$ is less than equal to that of $\sigma$. If we make a finite number
-  of such transpositions, we can see that $\sigma_{SJF}$ will minimize average
-  response time.
+show that if we interchange the positions of $j_i$ and $j_k$ to produce a
+schedule $\sigma '$ that the new schedule $\sigma '$ has at least as good an
+average response time as $\sigma$. If we look at both schedule $\sigma$ and
+$\sigma$ we first realize that the average response time between $j_1 \dots
+j_{i-1}$ and $j_{k+1} \dots j_n$ in both schedules is equal. For the jobs $j_i
+\dots j_k$ in $\sigma '$ and $j_k, j_{i+1} \dots j_{k-1}, j_i$ we every job in
+$\sigma '$ will have a lower resposne time since $c_i \leq c_k$ and every job
+after the first one in $\sigma '$ (for this subset of jobs) will finish earlier
+than the corresponding job in $\sigma$. Thus, we can conclude that the average
+resposne time for this subset of jobs is less than or equal in $\sigma '$ than
+in $\sigma$. Consequently, the average response time in $\sigma '$ is less than
+equal to that of $\sigma$. If we make a finite number of such transpositions,
+we can see that $\sigma_{SJF}$ will minimize average response time.
 
 
 \subsection{Priority Scheduling}
 Each task is assigned a priority $p_{i}$ and the task with the highest priority
-is selected first. Tasks with the same priority are scheduling using FCFS. It has
-the following properties:
+is selected first. Tasks with the same priority are scheduling using FCFS\@. It
+has the following properties:
 \begin{itemize}
   \item Preemptive
   \item Static or Dynamic based on how you define priority
@@ -209,9 +297,9 @@ A few things to note with regards to defining priority:
 \end{itemize}
 
 \subsection{Round Robin (RR)}
-There is a ready queue which follows FCFS. However, each task cannot execute more
-than $Q$ time units. When $Q$ time units have elapsed, the task is put back into 
-the ready queue. It has to following properties:
+There is a ready queue which follows FCFS\@. However, each task cannot execute
+more than $Q$ time units. When $Q$ time units have elapsed, the task is put
+back into the ready queue. It has to following properties:
 \begin{itemize}
   \item Preemptive
   \item Dynamic
@@ -406,11 +494,11 @@ that do not interfere with the CS will be blocked.
 \end{figure}
 
 \subsection{Highest Locker Priority}
-A task in the critical section gets the highest priority among the tasks that 
-use the CS. To implement: when a task enters a CS, increase its priority to the
-max value of the tasks that may access the same critical section. A process 
-could be blocked because it \emph{might} enter the critical section, not because
-it is in the critical section.
+A task in the critical section gets the highest priority among the tasks that
+use the CS\@. To implement: when a task enters a CS, increase its priority to
+the max value of the tasks that may access the same critical section. A process
+could be blocked because it \emph{might} enter the critical section, not
+because it is in the critical section.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=.6]{img/hlp}
@@ -457,7 +545,7 @@ $T_{i}$.
 
 \section{Communication Protocols}
 With regard to what we previously talked about with Daisy Chaining, devices
-can send signals to the CPU. However, we have not yet discussed how the 
+can send signals to the CPU\@. However, we have not yet discussed how the 
 signals are transmitted between the wires. Here is some vocabulary:
 \begin{itemize}
   \item Synchronous: Having one line for data and a separate line for clock to
