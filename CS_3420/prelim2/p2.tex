@@ -79,7 +79,9 @@ some important derived terminology with regard to scheduling:
 \begin{itemize}
   \item Lateness: $L_{i} = f_{i} - d_{i} $ Want this to be $\leq 0$
   \item Tardiness: $max(0,L_{i})$
-  \item Residual wcet: $c_{i}(t)$
+  \item Residual wcet: $c_{i}(t)$ This is the worst case execution time for the
+    remainder of the job whereas WCET itself is the overall worst case
+    execution time.
   \item Slack: $d_{i} - t - c_{i}(t)$  How sloppy can I be
   \item Jitter: time variation of a periodic event
 \end{itemize}
@@ -101,7 +103,7 @@ feasible schedule exists. Scheduling algorithms can be:
   \item Preemptive or non-preemptive
   \item Static or Dynamic: are the scheduling decisions based on parameters that
     change with time? For static, the parameters for all processes needed for the
-    schedule are known before hand.
+    schedule are known before hand (apriori) and do not change with execution.
   \item Online or Offline: are the decisions made prior with knowledge of task 
     activations, or are they taken at run time based on the set of active tasks?
     These are different from Static/Dynamic in the sense that they describe when
@@ -112,12 +114,13 @@ feasible schedule exists. Scheduling algorithms can be:
 Optimality simply means are we trying to minimize or maximize some parameter. 
 For example, minimizing the maximum lateness, minimizing the number of missed 
 deadlines, or maximize the value of of feasible tasks given than tasks are 
-assigned some utility value.
+assigned some utility value. \\
 
+Based on these definitions, a dynamic algorithm must necessarily be online. 
 \subsection{Resource Constraints}
 Resources (locks) can often be limited or even unavailable. Shared resources 
 often require mutual exclusion. Both of these concepts lead to delays. Therefore
-simply have a \emph{faster} processor doesn't always mean it is easier to meed
+simply having a \emph{faster} processor doesn't always mean it is easier to meet
 deadlines:
 \begin{figure}[H]
   \centering
@@ -125,7 +128,7 @@ deadlines:
 \end{figure}
 
 \subsection{First Come Fist Serve (FCFS)}
-A simply policy in which processes are given access to the CPU in the order of 
+A simple policy in which processes are given access to the CPU in the order of 
 their arrival time. However, it is very unpredictable as the response time
 depends strongly on task arrivals. It is not suitable for real time systems
 because it is not concerned with feasibility. It has the following properties:
@@ -162,8 +165,31 @@ following properties:
   \includegraphics[scale=.6]{sjf}
 \end{figure}
 
+\subsubsection{Proof for SJF}
+The following proof is not rigorous but will suffice for the purposes of this
+class. \\
 
-\subsection{Priority Scheduling}
+To prove SJF we will use a simple interchange argument. We start with a
+schedule $\sigma$ where $\sigma = {j_1, j_2 \dots j_k \dots j_n}.$ In this
+schedule $\sigma$ we have two jobs $j_i$ and $j_k$ such that $c_i \leq c_k$.
+Now lets assume that the schedule $\sigma$ is such that $\sigma = {j_1, j_2
+\dots j_{i-1}, j_k, j_{i+1} \dots j_{k-1}, j_l, j_{k+1} \dots j_n}$. We must
+  show that if we interchange the positions of $j_i$ and $j_k$ to produce a
+  schedule $\sigma '$ that the new schedule $\sigma '$ has at least as good an
+  average response time as $\sigma$. If we look at both schedule $\sigma$ and
+  $\sigma$ we first realize that the average response time between $j_1 \dots
+  j_{i-1}$ and $j_{k+1} \dots j_n$ in both schedules is equal. For the jobs
+  $j_i \dots j_k$ in $\sigma '$ and $j_k, j_{i+1} \dots j_{k-1}, j_i$ we every
+  job in $\sigma '$ will have a lower resposne time since $c_i \leq c_k$ and
+  every job after the first one in $\sigma '$ (for this subset of jobs) will
+  finish earlier than the corresponding job in $\sigma$. Thus, we can conclude
+  that the average resposne time for this subset of jobs is less than or equal
+  in $\sigma '$ than in $\sigma$. Consequently, the average response time in
+  $\sigma '$ is less than equal to that of $\sigma$. If we make a finite number
+  of such transpositions, we can see that $\sigma_{SJF}$ will minimize average
+  response time. 
+
+  \subsection{Priority Scheduling}
 Each task is assigned a priority $p_{i}$ and the task with the highest priority
 is selected first. Tasks with the same priority are scheduling using FCFS. It has
 the following properties:
@@ -247,6 +273,49 @@ $1/D_{i}$
 EDD can be proved using \emph{Jackson's Rule:} Given a set of n independent tasks
 ,any algorithm that executes the tasks in order of increasing deadlines is optimal
 with respect to maximum lateness.
+
+\subsubsection{Proof for EDD}
+The following proof is not a completely rigorous attempt at proving EDD but
+will suffice for the purposes of this class. First we realize that we are
+essentially trying to prove \textbf{Jackson's Rule}. \\
+
+\textbf{Theorem (Jackson's Rule)} : \textit{Given a set of n independent tasks,
+any algorithm that executes the tasks in the order of non-decreasing deadlines
+is optimal with respect to maximum lateness} \\
+
+\textbf{Proof} To prove Jackson's theorem we will use an interchange argument.
+Let $\sigma$ be a schedule produced by any algorithm $A$. If $A$ is not the
+same as EDD then, there are two jobs $J_a$ and $J_b$ such that $d_a \leq d_b$
+where $J_b$ immediately precdes $J_a$ in the schedule $\sigma$. Lets switch
+$J_b$ and $J_a$ to produce a new schedule $\sigma '$. In $\sigma '$, $J_a$
+immediately precedes $J_b$. These two schedules are shown in the figure
+\ref{jackson}. \\
+
+From figure \ref{jackson} we can see that for $\sigma$ the maximum lateness is
+$f_a - d_a$. Lets compare this with the maximum lateness of $\sigma '$. Here we
+have two cases :
+
+\begin{enumerate}
+  \item $L'_a \geq L'_b$ Then we know that the maximum lateness between $J_a$
+    and $J_b$ in $\sigma '$ is less than or equal to$f_a - d_a$ and thus the
+    maximum lateness of $\sigma '$ is less than or equal to that of $\sigma$.
+  \item $L'_b \geq L'_a$ Then we know that $f'_b = f_a$ and thus since $d_b
+    \geq d_a$, $L'b \leq L_a$. That is, $f'_b - d_b \leq f_a - d_a$ and thus
+    the maximum lateness of $\sigma '$ is less than or equal to the maximum
+    latness of $\sigma$.
+\end{enumerate}
+
+From both cases we can see that by interchanging $J_b$ and $J_a$ the maximum
+lateness is at least as good as it was before the interchanging. Thus we can
+conclude that interchanging $J_b$ and $J_a$ does not increase maximum lateness
+and a finite number such such transpositions can transpose $\sigma$ into an EDD
+schedule which in turn will have minimum maximum latness. 
+\begin{figure}[H]
+  \centering
+  \label{jackson}
+  \includegraphics[scale=0.75]{jacksons}
+\end{figure}
+
 
 \subsection{Earliest Deadline First (EDF)}
 The algorithm selects the task with the earliest \emph{absolute} deadline. Tasks
