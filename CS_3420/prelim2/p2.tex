@@ -564,7 +564,7 @@ signals are transmitted between the wires. Here is some vocabulary:
 \end{itemize}
 
 \subsection{RS-232}
-This is a very simple and resilient protocol that was used initially to connect
+This is a Point to Pont (P2P) serial protocol that was used initially to connect
 to a modem.
 \begin{figure}[H]
   \centering
@@ -594,6 +594,58 @@ to a modem.
   \centering
   \includegraphics[scale=.4]{img/rs3}
 \end{figure}
+
+\subsection{I$^{2}$C}
+I2C is a another serial protocol used to communicate between devices and it 
+synchronous. It has at least 1 Master and multiple Slaves. There are two lines
+SCL (clock) and SDA (data) which are connected to two pull up resistors. If no 
+one is driving at 0, the output of the floating wire is 1. If we want to drive
+at 0, we connect one of the devices to ground. Therefore, these pull up resistors
+act as current limiters. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=.5]{img/i2c}
+\end{figure}
+
+\begin{itemize}
+  \item The only decide that can drive the clock (SCL) or initiate transmission 
+    is Master.
+  \item Data can only change when SCK is low. Changing when SCK is high implies
+    a special action such START or STOP.
+  \item Can transmit unlimited amounts of bit per transmission b/c there is a 
+    clock to synchronous the sending and receiving of data.
+  \item After every 9th bit (on every 9th bit) there is an ACK sent to 
+    transmitter.
+  \item Each device has an address (7bits \- 128 devices) as well as registers
+    because for this protocol, 7 bits are for data, 1 bit is for R/RW, and the
+    9th bit is the ACK.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=.45]{img/i2cdata}
+\end{figure}
+
+\textbf{Example of Write:}
+\begin{enumerate}
+  \item Start sequence
+  \item Send address + set 8th bit as W
+  \item Slave ACK
+  \item Send register number
+  \item Put out data (slave will keep sending ACK after 8 bits)
+  \item Stop
+\end{enumerate}
+
+\textbf{Example of Read:}
+\begin{enumerate}
+  \item Start sequence
+  \item Send address + sec 8th bit to R
+  \item Master sends register number
+  \item Restart (optional)
+  \item Slave dumps data (master will keep sending ACK after 8 bits)
+  \item Stop
+\end{enumerate}
 
 
 \end{document}
