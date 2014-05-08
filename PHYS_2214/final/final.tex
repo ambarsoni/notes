@@ -1,0 +1,95 @@
+\documentclass{hw}
+\title{PHYS 2214 -- Final}
+\author{community}
+
+\usepackage{code}
+\usepackage{pgf}
+\usepackage{tikz}
+
+\numberwithin{equation}{section}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\maketitle
+
+\tableofcontents
+\newpage{}
+
+\section{Geometric Optics}
+
+\section{Power and Momentum in EM Waves}
+We have already explored the power of mechanical waves and found that it was
+the product of the energy density and wave speed. We did not explore the
+momentum of such waves but we can imagine that mechanical waves also have
+momentum. This can be shown by running the simple experiment of setting a ball
+in motion at the end of an oscillating string.\\
+
+Similarly, in EM we can talk about energy and momentum. We first start with the
+notion of energy of EM waves(Electric Field and Magnetic Field Components):
+\begin{equation}
+\cbox{%
+  u(t)  = \frac{1}{2}\epsilon_0 E(t)^2+\frac{1}{2\mu_0}B(t)^2
+}
+\end{equation}
+
+$\epsilon_0$ and $\mu_0$ are propreties of Electric Field and Magnetic fields
+in a vaccum. More general constants are $\epsilon$ and $\mu$
+
+Since we know that 
+\begin{equation}
+\cbox{%
+  B = \frac{E}{c} = \sqrt{\epsilon_0 \mu_0} E
+}
+\end{equation}
+
+We can say that:
+
+\begin{equation}
+\cbox{%
+  u(t) = \frac{1}{2}\epsilon_0 E^2
+}
+\end{equation}
+
+Note that $E$ and $B$ are magnitudes of the Electric Field and Magnetic Field
+respectively. Since these magnitudes are a function of position and time, the
+energy density $u$ is also in general a function of position and time.\\ 
+
+In EM it is often useful to talk about the \textit{erngy transfered per unit
+time per unit cross-sectional area} or \textit{power per unit area}. The area
+is perpendicular to the direction of the EM wave's propagation (velocity). We
+now get that:
+
+\begin{equation}
+\cbox{%
+  \label{eq::PoyntigMag}
+  S = \frac{dU}{Adt} = \epsilon_0 cE^2 = \frac{\left|E\right| \left|B\right|}{\mu_0}
+}
+\end{equation}
+
+Here we see that $S$ is a scalar quanitity. If we define a vector quanitity, we
+get that:
+
+\begin{equation}
+\cbox{%
+  \vec{S} = \frac{1}{\mu_0} \vec{E} \times \vec{B}
+}
+\end{equation}
+
+The vector quantity $\vec{S}$ represents the \textbf{Poyntig Vector}. We can
+know show equation \ref{PoyntigMag} by noting that $\vec{E}$ and $\vec{B}$ are
+perpendicular. \\
+
+The \textbf{Intensity} of an EM wave is defined as the average power per unit
+area. In addition, by using the fact that $\vec{E}$ and $\vec{B}$ oscillate in
+position and time, we can show that: 
+\begin{equation}
+\cbox{%
+  Intensity = S_{av} = \frac{E_{max} B_{max}}{2\mu_0} = \frac{E_{max}^2}{2\mu_0
+  c} = \frac{c\epsilon_0 E_{max}^2}{2}
+}
+\end{equation}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
