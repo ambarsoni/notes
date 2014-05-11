@@ -1,56 +1,37 @@
-\documentclass{hw}
-\title{PHYS 2214 -- Final}
-\author{community}
+\documentclass{hw} \title{PHYS 2214 -- Final} \author{community}
 
-\usepackage{code}
-\usepackage{pgf}
-\usepackage{tikz}
+\usepackage{code} \usepackage{pgf} \usepackage{tikz}
 
 \numberwithin{equation}{section}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{document}
-\maketitle
+\begin{document} \maketitle
 
-\tableofcontents
-\newpage{}
+\tableofcontents \newpage{}
 
 \section{Geometric Optics}
 
-\section{Power and Momentum in EM Waves}
-\subsection{Power and the Poynting Vector}
-We have already explored the power of mechanical waves and found that it was
-the product of the energy density and wave speed. We did not explore the
+\section{Power and Momentum in EM Waves} \subsection{Power and the Poynting
+Vector} We have already explored the power of mechanical waves and found that
+it was the product of the energy density and wave speed. We did not explore the
 momentum of such waves but we can imagine that mechanical waves also have
 momentum. This can be shown by running the simple experiment of setting a ball
 in motion at the end of an oscillating string.
 
 Similarly, in EM we can talk about energy and momentum. We first start with the
-notion of the volumetric energy density of EM waves (Electric Field and Magnetic
-Field Components):
-\begin{equation}
-\cbox{%
-  u(t)  = \frac{1}{2}\epsilon_0 E(t)^2+\frac{1}{2\mu_0}B(t)^2
-}
-\end{equation}
+notion of the volumetric energy density of EM waves (Electric Field and
+Magnetic Field Components): \begin{equation} \cbox{% u(t)  =
+    \frac{1}{2}\epsilon_0 E(t)^2+\frac{1}{2\mu_0}B(t)^2 } \end{equation}
 
 $\epsilon_0$ and $\mu_0$ are properties of Electric Field and Magnetic fields
 in a vacuum. More general constants are $\epsilon$ and $\mu$
 
-Since we know that 
-\begin{equation}
-\cbox{%
-  B(t) = \frac{E(t)}{c} = \sqrt{\epsilon_0 \mu_0} E(t)
-}
-\end{equation}
-We can say that:
-\begin{align}
-  u(t) &= \frac{1}{2} \epsilon_0 E(t)^2 + \frac{1}{2 \mu_0} B(t)^2      \\
-  u(t) &= \frac{1}{2} \epsilon_0 E(t)^2 +
-          \frac{1}{2 \mu_0} \epsilon_0 \mu_0 E(t)^2                     \\
-  u(t) &= \frac{1}{2} \epsilon_0 E(t)^2 + \frac{1}{2} \epsilon_0 E(t)^2 \\
-  u(t) &= \cbox{\epsilon_0 E(t)^2}
-\end{align}
+Since we know that \begin{equation} \cbox{% B(t) = \frac{E(t)}{c} =
+  \sqrt{\epsilon_0 \mu_0} E(t) } \end{equation} We can say that: \begin{align}
+    u(t) &= \frac{1}{2} \epsilon_0 E(t)^2 + \frac{1}{2 \mu_0} B(t)^2      \\
+    u(t) &= \frac{1}{2} \epsilon_0 E(t)^2 + \frac{1}{2 \mu_0} \epsilon_0 \mu_0
+    E(t)^2                     \\ u(t) &= \frac{1}{2} \epsilon_0 E(t)^2 +
+ \frac{1}{2} \epsilon_0 E(t)^2 \\ u(t) &= \cbox{\epsilon_0 E(t)^2} \end{align}
 
 Note that $E$ and $B$ are magnitudes of the Electric Field and Magnetic Field
 respectively. Since these magnitudes are a function of position and time, the
@@ -61,24 +42,17 @@ time per unit cross-sectional area} or \textit{power per unit area}. The area
 is perpendicular to the direction of the EM wave's propagation (velocity). We
 now get that:
 
-\begin{align}
-  S &= \frac{\text{Power}}{{Area}}             \\
-    &= \frac{dU}{dt} \cdot \frac{1}{A}         \\
-    &= u(t) c                                  \\
-    &= \epsilon_0 cE^2                         \\
-    &= \epsilon_0 c E Bc                       \\
-    &= \frac{\epsilon_0}{\epsilon_0 \mu_0} E B \\
-    &= \cbox{\frac{\left|E\right| \left|B\right|}{\mu_0}} \label{eq:PoyntingMag}
-\end{align}
+\begin{align} S &= \frac{\text{Power}}{{Area}}             \\ &= \frac{dU}{dt}
+\cdot \frac{1}{A}         \\ &= u(t) c                                  \\ &=
+\epsilon_0 cE^2                         \\ &= \epsilon_0 c E Bc
+\\ &= \frac{\epsilon_0}{\epsilon_0 \mu_0} E B \\ &= \cbox{\frac{\left|E\right|
+\left|B\right|}{\mu_0}} \label{eq:PoyntingMag} \end{align}
 
 Here we see that $S$ is a scalar quantity. If we define a vector quantity, we
 get that:
 
-\begin{equation}
-\cbox{%
-  \vec{S}(t) = \frac{1}{\mu_0} \vec{E}(t) \times \vec{B}(t)
-}
-\end{equation}
+\begin{equation} \cbox{% \vec{S}(t) = \frac{1}{\mu_0} \vec{E}(t) \times
+  \vec{B}(t) } \end{equation}
 
 The vector quantity $\vec{S}$ represents the \textbf{Poynting Vector}. We can
 know show Equation~\ref{eq:PoyntingMag} by noting that $\vec{E}$ and $\vec{B}$
@@ -86,22 +60,16 @@ are perpendicular. Also notice that the Poynting vector is a function of time.
 
 The \textbf{Intensity} of an EM wave is defined as the average power per unit
 area. In addition, by using the fact that $\vec{E}$ and $\vec{B}$ oscillate in
-position and time, we can show that: 
-\begin{equation}
-\cbox{%
-  Intensity = S_{av} = \frac{E_{max} B_{max}}{2\mu_0} = \frac{E_{max}^2}{2\mu_0
-  c} = \frac{c\epsilon_0 E_{max}^2}{2}
-}
-\end{equation}
-Here, the factor of $\frac{1}{2}$ comes from taking the average value of $E$
-and $B$, both of which are sinusoidal.
+position and time, we can show that: \begin{equation} \cbox{% Intensity =
+    S_{av} = \frac{E_{max} B_{max}}{2\mu_0} = \frac{E_{max}^2}{2\mu_0 c} =
+  \frac{c\epsilon_0 E_{max}^2}{2} } \end{equation} Here, the factor of
+  $\frac{1}{2}$ comes from taking the average value of $E$ and $B$, both of
+  which are sinusoidal.
 
-\subsection{Momentum}
-Electromagnetic waves have momentum, denoted $p$. Here, we consider the
-momentum flow per unit area of an electromagnetic wave.
-\begin{equation}\label{eq:radiation-pressure}
-  \frac{\text{momentum flow}}{\text{area}} 
-    = \frac{dp}{dt} \cdot \frac{1}{\text{area}}
+\subsection{Momentum} Electromagnetic waves have momentum, denoted $p$. Here,
+we consider the momentum flow per unit area of an electromagnetic wave.
+\begin{equation}\label{eq:radiation-pressure} \frac{\text{momentum
+  flow}}{\text{area}} = \frac{dp}{dt} \cdot \frac{1}{\text{area}}
 \end{equation}
 
 The units of Equation~\ref{eq:radiation-pressure} are $\frac{N}{m^2}$, or
@@ -110,37 +78,30 @@ pressure} of a wave: the pressure it exerts on a surface with which it
 collides.
 
 If the electromagnetic wave is completely absorbed by the surface it hits, then
-\begin{equation}
-  \cbox{\text{radiation pressure} = \frac{S}{c}}
-\end{equation}
-If the electromagnetic wave is reflected, then 
-\begin{equation}
-  \cbox{\text{radiation pressure} = \frac{2S}{c}}
-\end{equation}
+\begin{equation} \cbox{\text{radiation pressure} = \frac{S}{c}} \end{equation}
+If the electromagnetic wave is reflected, then \begin{equation}
+  \cbox{\text{radiation pressure} = \frac{2S}{c}} \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Interference}\label{sec:interference}
-Earlier, we explored and analyzed electromagnetic waves through the lens of
-geometric optics. In the following sections, we'll study electromagnetic waves
-through the lens of \emph{physical optics}. Physical optics revolves around
-viewing light as waves and observing the phenomena that arise through this
-viewpoint. For example, we'll see interference and diffraction.
+\section{Interference}\label{sec:interference} Earlier, we explored and
+analyzed electromagnetic waves through the lens of geometric optics. In the
+following sections, we'll study electromagnetic waves through the lens of
+\emph{physical optics}. Physical optics revolves around viewing light as waves
+and observing the phenomena that arise through this viewpoint. For example,
+we'll see interference and diffraction.
 
-\subsection{Interference in Two or Three Dimensions}
-Consider two sources of light, $S_1$ and $S_2$. The two sources produce
-\emph{coherent} light: light waves that have the same frequency and
-polarization and have a constant phase relationship. 
+\subsection{Interference in Two or Three Dimensions} Consider two sources of
+light, $S_1$ and $S_2$. The two sources produce \emph{coherent} light: light
+waves that have the same frequency and polarization and have a constant phase
+relationship. 
 
 $S_1$ and $S_2$ are not at the same location. That means that if we observe the
 light they produce at some point, the light from each source travels a
 different distance. Denote the difference in their path lengths $\Delta r$. We
-observe constructive interference when 
-\begin{equation}\label{eq:constructive}
-  \cbox{\Delta r = m \lambda, \quad m \in \mathbb{Z}}
-\end{equation}
+observe constructive interference when \begin{equation}\label{eq:constructive}
+  \cbox{\Delta r = m \lambda, \quad m \in \mathbb{Z}} \end{equation}
 
-We observe destructive interference when
-\begin{equation}\label{eq:destructive}
+We observe destructive interference when \begin{equation}\label{eq:destructive}
   \cbox{\Delta r = \group{m + \frac{1}{2}} \lambda, \quad m \in \mathbb{N}}
 \end{equation}
 
@@ -149,10 +110,9 @@ for $n$-source interference and diffraction will be derived from this intuitive
 pair of equations. Remembering where they come from will help keep everything
 sorted out.
 
-\subsection{Two-Source Interference of Light}
-Thomas Young's two-slit experiment is an example of two-source interference.
-Two coherent light sources at a distance $d$ are aimed at a surface a large
-distance away. 
+\subsection{Two-Source Interference of Light} Thomas Young's two-slit
+experiment is an example of two-source interference.  Two coherent light
+sources at a distance $d$ are aimed at a surface a large distance away. 
 
 To find the location of constructive and destructive interference, we'll simply
 use Equation~\ref{eq:constructive} and Equation~\ref{eq:destructive}. The path
@@ -160,10 +120,9 @@ difference at an angle $\theta$ is $d \sin(\theta)$. We'll substitute this
 value for $\Delta r$ and get equations for constructive and destructive
 interference.
 
-\begin{gather}
-  \cbox{d \sin(\theta) = m \lambda} \label{eq:interference-constructive} \\
-  \cbox{d \sin(\theta) = \group{m + \frac{1}{2}} \lambda}
-\end{gather}
+\begin{gather} \cbox{d \sin(\theta) = m \lambda}
+  \label{eq:interference-constructive} \\ \cbox{d \sin(\theta) = \group{m +
+  \frac{1}{2}} \lambda} \end{gather}
 
 The patterns formed on the screen are a succession of bright and dark bands, or
 \emph{interference fringes}. Denote the vertical distance to the center of the
@@ -171,17 +130,14 @@ bright band $m$, $y_m$. Denote the distance from the two light sources to the
 surface $R$. Using the small angle approximation, we can create a formula for
 $y_m$.
 
-\begin{equation}
-  \cbox{y_m = R \frac{m \lambda}{d}}
-\end{equation}
+\begin{equation} \cbox{y_m = R \frac{m \lambda}{d}} \end{equation}
 
 Notice that $\frac{m \lambda}{d} = \theta_m$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Diffraction}
-\subsection{What is diffraction?}
-Consider a beam of light striking a single slit. Thanks to Huygens's principle,
-we can think of the light emerging from the slit as many sources of light. In
+\section{Diffraction} \subsection{What is diffraction?} Consider a beam of
+light striking a single slit. Thanks to Huygens's principle, we can think of
+the light emerging from the slit as many sources of light. In
 \S~\ref{sec:interference}, we analyzed two-source interference. The analysis of
 diffraction is is identical, except for the fact that there are more sources.
 
@@ -190,12 +146,11 @@ diffraction}? Nothing! Interference is the superposition of light waves.
 Two-source interference is the interference of two light sources. Diffraction
 is the interference of many light sources. The two phenomena are equivalent.  
 
-\subsection{Diffraction Fringes}
-Two-source interference produced interference fringes of equal spacing and
-nearly equal intensity. Diffraction produces fringes too, but they're quite a
-bit different. First off, the center band a big potato. It is much larger than
-the other bands. Second off, the other bright bands are much dimmer than the
-central potato. 
+\subsection{Diffraction Fringes} Two-source interference produced interference
+fringes of equal spacing and nearly equal intensity. Diffraction produces
+fringes too, but they're quite a bit different. First off, the center band a
+big potato. It is much larger than the other bands. Second off, the other
+bright bands are much dimmer than the central potato. 
 
 When we analyzed two-source interference, we found an equation for the location
 of the fringes. Now, with such a big potato in the center, it doesn't make as
@@ -207,22 +162,49 @@ Equation~\ref{eq:destructive}. Denote the width of the slit $a$\footnote{not to
 be confused with $d$ from \S~\ref{sec:interference} which was the distance
 between slits}. The equation for destructive interference is
 
-\begin{equation}\label{eq:diffraction-destructive}
-  \cbox{a \sin(\theta) = m \lambda, \quad m \in \mathbb{Z} - \set{0}}
-\end{equation}
+\begin{equation}\label{eq:diffraction-destructive} \cbox{a \sin(\theta) = m
+  \lambda, \quad m \in \mathbb{Z} - \set{0}} \end{equation}
 
-Notice a couple subtleties.
-\begin{itemize}
-  \item Equation~\ref{eq:diffraction-destructive} looks very similar to
-    Equation~\ref{eq:interference-constructive}. However, the former equation
-    is for dark bands and the latter is for bright bands. The reason they are
-    different is explained in the book and is a bit hand wavy.
-  \item Here $m \in \mathbb{Z} - \set{0} = \set{-1, 1, -2, 2, \ldots}$. $m$
-    cannot be $0$ because there is no dark band in the middle of the potato.
-\end{itemize}
+Notice a couple subtleties.  \begin{itemize} \item
+      Equation~\ref{eq:diffraction-destructive} looks very similar to
+      Equation~\ref{eq:interference-constructive}. However, the former equation
+      is for dark bands and the latter is for bright bands. The reason they are
+    different is explained in the book and is a bit hand wavy.  \item Here $m
+      \in \mathbb{Z} - \set{0} = \set{-1, 1, -2, 2, \ldots}$. $m$ cannot be $0$
+      because there is no dark band in the middle of the potato.  \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Interference and Diffraction Intensities}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Quantum}
+
+\subsection{Motivation for Quantum}
+
+\subsection{Photoelectric Effect} The photoelectric effect is when a light
+strikes a surface and emits an electron in a process called
+\textbf{photoemission}. In order to emit an electron, we must add some energy
+to the electron. The minimum energy required to emit an electron from the
+surface is called $\phi$ - the work function. The main question we will be
+exploring now is: \textit{What determines the energy of individual electrons
+emitted from a metal}. \\
+
+Imagine the typical setup for the photoelectric effect shown in Lecture 21 of
+the notes. Here we have a simple circuit with a metal plate connected to a
+voltage source and an unconnected anode as the ``collecting wire''. Icident
+light excites electrons from the metal surface which travel from the metal to
+the collecting wire - completing a circuit. Here we will explore four
+variables:
+
+\begin{enumerate}
+  \item Illumination Intensity (I)
+  \item Light wavelength / frequency
+  \item Applied Voltage (V)
+  \item Choice of Metal - determines the work function
+\end{enumerate}
+
+
+
+
 \end{document}
+
